@@ -1,3 +1,3 @@
 export const App = () => {
-  return <>App</>
+  return <button className='btn btn-primary'>Button</button>
 }
