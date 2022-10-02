@@ -2,5 +2,5 @@
 
 ## The [web app](https://react-query-ref.vercel.app/) has been deployed via [Vercel](https://vercel.com/).
 
-## Ui Showcase —
+## UI Showcase —
 ![image](https://user-images.githubusercontent.com/89210438/193475909-df12323c-13f9-4b41-9ed1-b194127b3613.png)
