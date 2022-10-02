@@ -1,18 +1,23 @@
-/**
- * placeholder object
- * @see https://course-api.com/react-store-products
- */
-const product = {
-  id: 'recZkNf2kwmdBcqd0',
-  name: 'accent chair',
-  price: 25999,
-  company: 'marcos',
-  description:
-    'Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge',
-  category: 'office',
+interface Product {
+  id?: string
+  name?: string
+  price?: number
+  image?: string
+  colors: string[]
+  company: string
+  description: string
+  category: string
+  shipping: boolean
 }
 
-export const Table = () => {
+interface Props {
+  isFetching: boolean
+  cartData: Product[]
+}
+
+export const Table = (props: Props) => {
+  const { isFetching, cartData } = props
+
   return (
     <div className='overflow-x-auto'>
       <table className='table table-compact w-full'>
@@ -27,16 +32,22 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td>{product.name}</td>
-            <td>{product.company}</td>
-            <td>{product.description.slice(0, 100)}</td>
-            <td>{product.category}</td>
-            <td>{product.price}</td>
-          </tr>
+          {cartData.map((item) => {
+            const { id, name, company, description, category, price } = item
+            return (
+              <tr key={id}>
+                <td></td>
+                <td>{name}</td>
+                <td>{company}</td>
+                <td>{description.slice(0, 100)}</td>
+                <td>{category}</td>
+                <td>₹{price}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
+      <div>{isFetching ? 'Updating...' : ''}</div>
     </div>
   )
 }
