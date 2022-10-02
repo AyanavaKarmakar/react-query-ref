@@ -32,16 +32,22 @@ export const Table = (props: Props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td>{product.name}</td>
-            <td>{product.company}</td>
-            <td>{product.description.slice(0, 100)}</td>
-            <td>{product.category}</td>
-            <td>{product.price}</td>
-          </tr>
+          {cartData.map((item) => {
+            const { id, name, company, description, category, price } = item
+            return (
+              <tr key={id}>
+                <td></td>
+                <td>{name}</td>
+                <td>{company}</td>
+                <td>{description.slice(0, 100)}</td>
+                <td>{category}</td>
+                <td>₹{price}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
+      <div>{isFetching ? 'Updating...' : ''}</div>
     </div>
   )
 }
