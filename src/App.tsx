@@ -1,3 +1,9 @@
+import { Navbar } from './components'
+
 export const App = () => {
-  return <button className='btn btn-primary'>Button</button>
+  return (
+    <header>
+      <Navbar />
+    </header>
+  )
 }
