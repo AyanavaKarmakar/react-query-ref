@@ -1,9 +1,14 @@
-import { Navbar } from './components'
+import { Navbar, Table } from './components'
 
 export const App = () => {
   return (
-    <header>
-      <Navbar />
-    </header>
+    <>
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <Table />
+      </main>
+    </>
   )
 }
