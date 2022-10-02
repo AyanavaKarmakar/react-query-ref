@@ -32,7 +32,7 @@ export const App = () => {
         <Navbar />
       </header>
       <main>
-        <Table />
+        <Table cartData={data} isFetching={isFetching} />
       </main>
     </>
   )

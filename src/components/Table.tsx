@@ -12,7 +12,26 @@ const product = {
   category: 'office',
 }
 
-export const Table = () => {
+interface Product {
+  id?: string
+  name?: string
+  price?: number
+  image?: string
+  colors: string[]
+  company: string
+  description: string
+  category: string
+  shipping: boolean
+}
+
+interface Props {
+  isFetching: boolean
+  cartData: Product[]
+}
+
+export const Table = (props: Props) => {
+  const { isFetching, cartData } = props
+
   return (
     <div className='overflow-x-auto'>
       <table className='table table-compact w-full'>
